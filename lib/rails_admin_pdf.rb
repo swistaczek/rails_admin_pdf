@@ -15,12 +15,16 @@ module RailsAdmin
           true
         end
 
-		register_instance_option :controller do
-		  Proc.new do
-		    report = "#{@object.class.to_s.demodulize}Report".constantize.new
-			send_data report.to_pdf(@object), :filename => "#{@object.class.to_s.demodulize}_#{@object.id}.pdf", :type => "application/pdf"
-		  end
-		end
+        register_instance_option :controller do
+          Proc.new do
+            report = "#{@object.class.to_s.demodulize}Report".constantize.new
+            send_data report.to_pdf(@object), :filename => "#{@object.class.to_s.demodulize}_#{@object.id}.pdf", :type => "application/pdf"
+          end
+        end
+
+        register_instance_option :link_icon do
+          'icon-folder-open'
+        end
       end
     end
   end
