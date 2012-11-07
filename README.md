@@ -8,7 +8,7 @@ Installation
 
 * Add to Gemfile and bundle install:
 ```ruby
-gem "rails_admin_pdf", :git => "git://github.com/stephskardal/rails_admin_pdf.git"
+gem "rails_admin_pdf", git: "git@github.com:swistaczek/rails_admin_pdf.git"
 ```
 
 * Register in initializers/rails_admin.rb
