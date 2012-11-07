@@ -7,6 +7,7 @@ Installation
 ========
 
 * Add to Gemfile and bundle install:
+
 ```ruby
 gem "rails_admin_pdf", git: "git@github.com:swistaczek/rails_admin_pdf.git"
 ```
