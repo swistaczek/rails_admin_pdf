@@ -13,6 +13,7 @@ module RailsAdmin
 
         register_instance_option :visible? do
           begin
+            binding.pry
             report = "#{@object.class.to_s.demodulize}Report".constantize.new
             authorized? && report.present?
           rescue NameError
