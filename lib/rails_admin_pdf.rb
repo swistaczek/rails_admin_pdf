@@ -36,7 +36,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'icon-folder-open'
+          'icon-download-alt'
         end
       end
     end
