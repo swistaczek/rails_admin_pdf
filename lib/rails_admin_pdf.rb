@@ -12,7 +12,11 @@ module RailsAdmin
         RailsAdmin::Config::Actions.register(self)
 
         register_instance_option :visible? do
-          true
+          begin
+            authorized? && "#{@object.class.to_s.demodulize}Report".constantize
+          rescue NameError
+            false
+          end
         end
         
         register_instance_option :member do
