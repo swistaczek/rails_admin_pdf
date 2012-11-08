@@ -10,6 +10,14 @@ module RailsAdmin
     module Actions
       class Pdf < Base
         RailsAdmin::Config::Actions.register(self)
+
+        register_instance_option :visible? do
+          begin
+            "#{@object.class.to_s.demodulize}Report".constantize && authorized?
+          rescue NameError
+            false
+          end
+        end
         
         register_instance_option :member do
           true
@@ -18,7 +26,7 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             report = "#{@object.class.to_s.demodulize}Report".constantize.new
-            send_data report.to_pdf(@object), :filename => "#{@object.class.to_s.demodulize}_#{@object.id}.pdf", :type => "application/pdf"
+            send_data report.to_pdf(@object), filename: "#{@object.class.to_s.demodulize}_#{@object.id}.pdf", type: "application/pdf"
           end
         end
 
