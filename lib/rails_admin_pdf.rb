@@ -11,13 +11,9 @@ module RailsAdmin
       class Pdf < Base
         RailsAdmin::Config::Actions.register(self)
 
-        # register_instance_option :visible? do
-        #   begin
-        #     authorized? && !"#{@object.class.to_s.demodulize}Report".constantize.nil?
-        #   rescue NameError
-        #     false
-        #   end
-        # end
+        register_instance_option :visible? do
+          true
+        end
         
         register_instance_option :member do
           true
