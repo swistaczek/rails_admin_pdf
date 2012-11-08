@@ -31,6 +31,10 @@ module RailsAdmin
           end
         end
 
+        register_instance_option :route_fragment do
+          "pdf.pdf"
+        end
+
         register_instance_option :link_icon do
           'icon-folder-open'
         end
